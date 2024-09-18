@@ -53,11 +53,11 @@ def save_to_file(dialogues, output_file):
 
 # 사용 예시
 directory_path = 'data'  # 26개의 파일이 있는 디렉토리 경로
-character = 'アスカ'
+character = 'シンジ'
 all_dialogues = extract_from_multiple_files(directory_path, character)
 
-# 추출한 대사를 Asuka.txt 파일로 저장
-output_file = 'Asuka.txt'
+# 추출한 대사를 Shinji.txt 파일로 저장
+output_file = 'Shinji.txt'
 save_to_file(all_dialogues, output_file)
 
 print(f"대사가 {output_file} 파일에 저장되었습니다.")
