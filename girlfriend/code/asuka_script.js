@@ -117,10 +117,10 @@ ${characterInfo}
       throw new Error("API 응답 형식 오류: 예상된 응답 구조가 없습니다.");
     }
 
-    const shinjiMessage = data.candidates[0].content.parts[0].text;
-    appendMessage(shinjiMessage, "shinji");
+    const asukaMessage = data.candidates[0].content.parts[0].text;
+    appendMessage(asukaMessage, "asuka");
   } catch (error) {
     console.error("API 호출 중 오류 발생:", error);
-    appendMessage("아 미안 ㅎ, 지금은 이만!", "shinji");
+    appendMessage("아 미안 ㅎ, 지금은 이만!", "asuka");
   }
 }
