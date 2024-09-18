@@ -23,3 +23,9 @@ deactivate
 ```
 pip install -q -U google-generativeai
 ```
+
+3. API 키를 대신 환경 변수로 할당합니다.
+
+```
+export API_KEY=<YOUR_API_KEY>
+```
