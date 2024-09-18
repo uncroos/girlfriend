@@ -15,4 +15,4 @@ cleaned_lines = [line.replace('（アスカ）', '').strip() for line in lines i
 with open(output_file, 'w', encoding='utf-8') as outfile:
     outfile.writelines("\n".join(cleaned_lines) + "\n")
 
-print(f"{output_file}에 '(シンジ)'와 빈 줄이 제거된 결과가 저장되었습니다.")
+print(f"{output_file}에 '(アスカ)'와 빈 줄이 제거된 결과가 저장되었습니다.")
