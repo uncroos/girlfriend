@@ -7,20 +7,28 @@ def extract_dialogue(file_path, character):
 
     character_dialogues = []
     is_character_speaking = False  # 인물이 대사를 말하고 있는지 여부 추적
+    dialogue_block = []  # 현재 대사 블록
 
     # 파일의 각 줄을 처리
     for line in lines:
-        # 해당 인물의 이름이 나오면 대사 시작
+        # 해당 인물의 이름이 나오면 새로운 대사 시작
         if line.startswith(f'（{character}）'):
+            if dialogue_block:  # 대사 블록이 있으면 저장
+                character_dialogues.append("\n".join(dialogue_block))
             is_character_speaking = True
-            character_dialogues.append(line.strip())  # 인물 이름 추가
+            dialogue_block = [line.strip()]  # 새로운 대사 블록 시작
+        elif line.startswith('（') and is_character_speaking:
+            # 다른 인물이 등장하면 대사 끝
+            is_character_speaking = False
+            character_dialogues.append("\n".join(dialogue_block))
+            dialogue_block = []
         elif is_character_speaking:
-            # 빈 줄이 나오면 대사 끝으로 간주
-            if line.strip() == "":
-                is_character_speaking = False
-            else:
-                # 대사가 계속 이어지면 추가
-                character_dialogues.append(line.strip())
+            # 대사가 이어지면 대사 블록에 추가
+            dialogue_block.append(line.strip())
+
+    # 마지막 대사 블록 추가
+    if dialogue_block:
+        character_dialogues.append("\n".join(dialogue_block))
 
     return character_dialogues
 
@@ -41,7 +49,7 @@ def extract_from_multiple_files(directory_path, character):
 def save_to_file(dialogues, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         for dialogue in dialogues:
-            file.write(dialogue + '\n')
+            file.write(dialogue + '\n\n')  # 각 대사 블록 사이에 빈 줄 추가
 
 # 사용 예시
 directory_path = 'data'  # 26개의 파일이 있는 디렉토리 경로
