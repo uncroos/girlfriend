@@ -38,7 +38,7 @@ html {
 }
 
 #send-button {
-  background-color: #3070b6;
+  background-color: #d83332;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -54,7 +54,7 @@ html {
 }
 
 .user {
-  background-color: #007bff;
+  background-color: #d83332;
   color: white;
   align-self: flex-end;
 }
