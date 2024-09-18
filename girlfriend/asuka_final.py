@@ -2,7 +2,7 @@
 
 # 원본 파일 이름과 결과 파일 이름을 설정
 input_file = 'asuka_cleaned.txt'
-output_file = 'asuka_cleaned_real.pdfs'
+output_file = 'asuka_cleaned_real.pdf'
 
 # 파일을 읽고 '(シンジ)'와 빈 줄이 아닌 줄만 필터링하여 새 파일로 저장
 with open(input_file, 'r', encoding='utf-8') as infile:
