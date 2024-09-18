@@ -6,7 +6,7 @@
 
 ```
 python -m venv venv
-source venv/Script/Activate
+source venv/bin/activate
 ```
 
 위를 터미널창에 입력
