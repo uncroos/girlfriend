@@ -9,7 +9,7 @@ with open(input_file, 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
 
 # '(シンジ)' 제거 및 빈 줄 제거
-cleaned_lines = [line.replace('（シンジ）', '').strip() for line in lines if line.strip()]
+cleaned_lines = [line.replace('（アスカ）', '').strip() for line in lines if line.strip()]
 
 # 결과를 새 파일에 기록
 with open(output_file, 'w', encoding='utf-8') as outfile:
