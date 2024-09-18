@@ -5,13 +5,22 @@ def extract_dialogue(file_path, character):
     with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
-    # 추출할 대사를 저장할 리스트
     character_dialogues = []
-    
-    # 대사 앞에 특정 인물의 이름이 있는 줄을 추출
+    is_character_speaking = False  # 인물이 대사를 말하고 있는지 여부 추적
+
+    # 파일의 각 줄을 처리
     for line in lines:
+        # 해당 인물의 이름이 나오면 대사 시작
         if line.startswith(f'（{character}）'):
-            character_dialogues.append(line.strip())
+            is_character_speaking = True
+            character_dialogues.append(line.strip())  # 인물 이름 추가
+        elif is_character_speaking:
+            # 빈 줄이 나오면 대사 끝으로 간주
+            if line.strip() == "":
+                is_character_speaking = False
+            else:
+                # 대사가 계속 이어지면 추가
+                character_dialogues.append(line.strip())
 
     return character_dialogues
 
@@ -35,7 +44,7 @@ def save_to_file(dialogues, output_file):
             file.write(dialogue + '\n')
 
 # 사용 예시
-directory_path = 'data'
+directory_path = 'data'  # 26개의 파일이 있는 디렉토리 경로
 character = 'シンジ'
 all_dialogues = extract_from_multiple_files(directory_path, character)
 
