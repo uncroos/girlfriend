@@ -1,7 +1,7 @@
 # Shinji.txt에서 빈 줄을 제거하는 코드
 
 # 원본 파일 이름과 결과 파일 이름을 설정
-input_file = 'asuka.txt'
+input_file = 'Asuka.txt'
 output_file = 'asuka_cleaned.txt'
 
 # 파일을 읽고 빈 줄이 아닌 줄만 필터링하여 새 파일로 저장
