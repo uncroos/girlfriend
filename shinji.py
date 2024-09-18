@@ -35,7 +35,7 @@ def save_to_file(dialogues, output_file):
             file.write(dialogue + '\n')
 
 # 사용 예시
-directory_path = '/mnt/data/your_directory/'  # 26개의 파일이 있는 디렉토리 경로
+directory_path = 'data'
 character = 'シンジ'
 all_dialogues = extract_from_multiple_files(directory_path, character)
 
